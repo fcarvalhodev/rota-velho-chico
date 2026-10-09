@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Rota Velho Chico</title>
+<meta name="description" content="Quem fez a transposição do Rio São Francisco, explicado de um jeito simples: como a obra funciona, o que cada governo fez, quanto cada um investiu e o que ainda falta.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout: the Rotas skeleton in the easy-reading format. The Velho Chico route colour is sertão ochre. Order: question, short answer, how it works, what each government did, money, what is missing, true or false, summary, all the numbers. */
+:root{
+  --bg:#f1f0f4; --paper:#fbfbfd; --ink:#1b1a22; --muted:#5d5a68; --line:#d6d3de; --soft:#e7e5ec;
+  --accent:#8a5a0e; --accent-soft:#f3e6cf;
+  --own:#1baf7a; --usd:#eb6834; --usd-soft:#fbe5dc; --gray:#8a8c92;
+  --ok:#1f6b45; --ok-soft:#dcefe3; --no:#a12a2a; --no-soft:#f6dede; --part:#7a5a00; --part-soft:#f6ebc9;
+  --display:"Archivo","Arial Narrow",Impact,sans-serif;
+  --ui:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --text:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#121117; --paper:#1a1920; --ink:#ebe9f0; --muted:#a6a2b2; --line:#2e2c37; --soft:#24222c;
+  --accent:#e3ae5f; --accent-soft:#3a2c16;
+  --own:#199e70; --usd:#d95926; --usd-soft:#3a2016; --gray:#6e7077;
+  --ok:#7fd3a3; --ok-soft:#173326; --no:#f19b9b; --no-soft:#3a1c1c; --part:#e8c25a; --part-soft:#3a3016; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121117; --paper:#1a1920; --ink:#ebe9f0; --muted:#a6a2b2; --line:#2e2c37; --soft:#24222c;
+  --accent:#e3ae5f; --accent-soft:#3a2c16;
+  --own:#199e70; --usd:#d95926; --usd-soft:#3a2016; --gray:#6e7077;
+  --ok:#7fd3a3; --ok-soft:#173326; --no:#f19b9b; --no-soft:#3a1c1c; --part:#e8c25a; --part-soft:#3a3016; color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--text);font-size:19px;line-height:1.7}
+a{color:inherit;text-decoration-color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.wrap{max-width:880px;margin:0 auto;padding-inline:16px}
+.kicker,.mono{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.kicker{color:var(--accent)}
+h1{font-family:var(--display);font-stretch:62%;font-weight:900;font-size:clamp(46px,11vw,104px);line-height:.9;margin:0;text-transform:uppercase;overflow-wrap:anywhere}
+h2{font-family:var(--display);font-stretch:66%;font-weight:800;font-size:clamp(34px,7vw,52px);line-height:.95;margin:0;text-transform:uppercase;text-wrap:balance}
+h3{font-family:var(--ui);font-weight:700;font-size:22px;line-height:1.2;margin:0;text-wrap:balance}
+p{margin:0}
+header,section{display:grid;grid-template-columns:minmax(0,1fr)}
+header{padding-block:40px 8px;gap:18px}
+section{padding-block:48px 8px;gap:18px}
+.lg{font-size:21px;line-height:1.6}
+.sub{color:var(--muted);max-width:62ch}
+.src{font-family:var(--mono);font-size:12px;color:var(--muted);display:flex;flex-wrap:wrap;gap:2px 14px;line-height:1.5}
+.src a{color:var(--muted)}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:20px;display:grid;gap:12px;align-content:start}
+.answer-box{background:var(--accent-soft);border:2px solid var(--accent);border-radius:6px;padding:20px;margin-top:40px}
+.note{font-size:16px;color:var(--muted)}
+
+
+:root{--g-pt:#2a78d6; --g-temer:#8a8c92; --g-bolso:#1baf7a}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--g-pt:#3987e5; --g-temer:#6e7077; --g-bolso:#199e70}}
+:root[data-theme="dark"]{--g-pt:#3987e5; --g-temer:#6e7077; --g-bolso:#199e70}
+/* how it works */
+.path{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;align-items:stretch}
+.stop{background:var(--paper);border:2px solid var(--accent);border-radius:8px;padding:12px 8px;display:grid;gap:4px;justify-items:center;text-align:center;align-content:start}
+.stop .emo{font-size:40px;line-height:1}
+.stop b{font-family:var(--ui);font-size:17px;line-height:1.2}
+.stop span{font-size:14px;color:var(--muted);line-height:1.35}
+.three{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.three .card .n{font-family:var(--display);font-stretch:62%;font-weight:900;font-size:56px;line-height:.9;color:var(--accent)}
+.three .card p{font-size:17px}
+
+/* who did what: relay */
+.relay{display:grid;gap:12px}
+.leg2{display:grid;grid-template-columns:64px minmax(0,1fr);gap:14px;background:var(--paper);border:1px solid var(--line);border-left:8px solid var(--c);border-radius:6px;padding:16px}
+.leg2 .yr{font-family:var(--display);font-stretch:66%;font-weight:800;font-size:26px;line-height:1;color:var(--c);text-transform:uppercase}
+.leg2 h3{font-size:20px;margin-bottom:4px}
+.leg2 ul{margin:0;padding-left:20px;display:grid;gap:4px;font-size:17px;line-height:1.5}
+
+/* money */
+.stack{display:flex;height:56px;border-radius:4px;overflow:hidden;gap:2px}
+.stack i{display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--mono);font-weight:600;font-size:14px;font-style:normal;text-align:center;line-height:1.1;padding:2px}
+.leg{display:flex;flex-wrap:wrap;gap:6px 18px;font-family:var(--ui);font-weight:600;font-size:16px}
+.leg i{display:inline-block;width:16px;height:16px;border-radius:3px;background:var(--c);margin-right:6px;vertical-align:-2px}
+
+/* progress */
+.tl{display:grid;gap:10px}
+.tr{display:grid;grid-template-columns:minmax(0,1fr);gap:4px}
+.tr .lab{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-family:var(--ui);font-weight:700;font-size:17px}
+.tr .lab span{font-family:var(--mono);font-weight:500;font-size:13px;color:var(--muted)}
+.tr .t{height:30px;background:var(--soft);border-radius:3px;position:relative}
+.tr .f{position:absolute;inset:0 auto 0 0;background:var(--c);border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;color:var(--paper);font-family:var(--mono);font-weight:600;font-size:14px;white-space:nowrap}
+/* true or false */
+.vf{display:grid;gap:12px}
+.vfi{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:16px 18px;display:grid;gap:8px}
+.vfi p{font-size:18px}
+.badge{justify-self:start;font-family:var(--ui);font-weight:800;font-size:15px;letter-spacing:.04em;text-transform:uppercase;padding:4px 12px;border-radius:999px}
+.badge.f{background:var(--no-soft);color:var(--no);border:2px solid var(--no)}
+.badge.m{background:var(--part-soft);color:var(--part);border:2px solid var(--part)}
+.badge.v{background:var(--ok-soft);color:var(--ok);border:2px solid var(--ok)}
+
+.verdict{background:var(--ink);color:var(--paper);border-radius:6px;padding:22px 20px;display:grid;gap:12px}
+.verdict h2{color:var(--paper)}
+.verdict ul{margin:0;padding-left:20px;display:grid;gap:8px;font-size:20px}
+details.mais{margin-top:44px;border:2px solid var(--line);border-radius:6px;background:var(--paper)}
+details.mais>summary{cursor:pointer;padding:18px 20px;font-family:var(--ui);font-weight:700;font-size:19px;list-style:none;display:flex;justify-content:space-between;gap:12px}
+details.mais>summary::after{content:"+";font-family:var(--mono);font-size:24px;line-height:1}
+details.mais[open]>summary::after{content:"−"}
+details.mais>summary::-webkit-details-marker{display:none}
+.mais-body{padding:0 20px 20px;font-size:17px;line-height:1.6;display:grid;gap:14px}
+.mais-body table{width:100%;border-collapse:collapse;font-size:15px}
+.mais-body th,.mais-body td{text-align:left;padding:8px 6px;border-top:1px solid var(--line);vertical-align:top}
+.mais-body th{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.mais-body td:last-child{font-family:var(--mono);white-space:nowrap}
+footer{padding-block:44px 60px;color:var(--muted);font-size:14px;display:grid;gap:8px}
+@media (max-width:640px){.coins3{grid-template-columns:minmax(0,1fr)}.coins{max-width:220px}}
+@media (max-width:520px){.flow{grid-template-columns:minmax(0,1fr)}.arrows{grid-auto-flow:column;justify-content:center}.pib{grid-template-columns:repeat(10,minmax(0,1fr))}}
+
+@media (max-width:640px){.path{grid-template-columns:repeat(2,minmax(0,1fr))}.path .stop:last-child{grid-column:span 2}}
+</style>
+</head><body>
+
+
+<style>/* barra comum das Rotas */.rotas-bar{border-bottom:1px solid var(--line);background:var(--bg);font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase}.rotas-bar>div{max-width:880px;margin:0 auto;padding:10px 16px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px}.rotas-bar a{color:var(--muted);text-decoration:none;padding-block:2px;border-bottom:2px solid transparent}.rotas-bar a:hover{color:var(--ink)}.rotas-bar a[aria-current]{color:var(--ink);border-bottom-color:var(--accent)}.rotas-bar .rb-home{color:var(--accent);font-weight:600}.rotas-bar a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}</style><nav class="rotas-bar" aria-label="Rotas"><div><a class="rb-home" href="https://fcarvalhodev.github.io/rotas/">Rotas</a><a href="https://fcarvalhodev.github.io/rota-washington/">Washington</a><a href="https://fcarvalhodev.github.io/rota-master/">Master</a><a href="https://fcarvalhodev.github.io/rota-curitiba/">Curitiba</a><a href="https://fcarvalhodev.github.io/rota-da-fe/">Fé</a><a href="https://fcarvalhodev.github.io/rota-esplanada/">Esplanada</a><a href="https://fcarvalhodev.github.io/rota-itamaraty/">Itamaraty</a><a href="https://fcarvalhodev.github.io/rota-da-picanha/">Picanha</a><a href="https://fcarvalhodev.github.io/rota-do-ibge/">IBGE</a><a href="https://fcarvalhodev.github.io/rota-velho-chico/" aria-current="page">Velho Chico</a><a href="https://fcarvalhodev.github.io/rota-do-tesouro/">Tesouro</a><a href="https://fcarvalhodev.github.io/rota-rouanet/">Rouanet</a><a href="https://fcarvalhodev.github.io/rota-dos-ventos/">Ventos</a></div></nav>
+<header class="wrap">
+  <div class="kicker">Rota Velho Chico</div>
+  <h1>Quem fez a transposição?</h1>
+  <p class="lede lg">Muita gente diz que a transposição do Rio São Francisco é obra do Bolsonaro. Outros dizem que é só do Lula. Aqui está o que cada governo fez, em palavras simples.</p>
+</header>
+
+<main class="wrap">
+
+<section class="answer-box" aria-labelledby="h-curta">
+  <h2 id="h-curta">A resposta curta</h2>
+  <p class="lg">A obra é de <b>vários governos</b>. Ela começou em 2007, com Lula, e a maior parte dos canais foi construída com Lula e Dilma. Temer inaugurou o Eixo Leste. Bolsonaro terminou o Eixo Norte e um dos ramais. Com Lula de novo, seguem os ramais que faltam. Quando Bolsonaro assumiu, <b>mais de 90%</b> dos dois canais principais já estavam prontos.</p>
+</section>
+
+<section aria-labelledby="h-como">
+  <h2 id="h-como">Como funciona</h2>
+  <p class="sub lg">Bombas puxam água do rio e mandam por canais até açudes no sertão. De lá, ramais e adutoras levam a água para as cidades.</p>
+  <div class="path" role="img" aria-label="Rio, bombas, canais, açudes e cidades">
+    <div class="stop"><span class="emo" aria-hidden="true">🏞️</span><b>Rio São Francisco</b><span>a água sai daqui</span></div>
+    <div class="stop"><span class="emo" aria-hidden="true">⚙️</span><b>Bombas</b><span>sobem a água pela serra</span></div>
+    <div class="stop"><span class="emo" aria-hidden="true">〰️</span><b>Dois canais</b><span>Eixo Norte, 260 km, e Eixo Leste, 217 km</span></div>
+    <div class="stop"><span class="emo" aria-hidden="true">💧</span><b>Açudes</b><span>guardam a água</span></div>
+    <div class="stop"><span class="emo" aria-hidden="true">🏘️</span><b>Cidades</b><span>chega por ramais e adutoras</span></div>
+  </div>
+  <div class="three">
+    <div class="card"><span class="n">12 mi</span><h3>de pessoas</h3><p>é quanto a obra atende ou vai atender.</p></div>
+    <div class="card"><span class="n">390</span><h3>municípios</h3><p>em Pernambuco, Paraíba, Ceará e Rio Grande do Norte.</p></div>
+    <div class="card"><span class="n">R$ 14 bi</span><h3>de custo</h3><p>pagos pela União, somando canais e ramais.</p></div>
+  </div>
+  <span class="src"><a href="https://crusoe.com.br/?p=238663" target="_blank" rel="noopener">Comprova, via Crusoé: tamanhos, pessoas e custo</a><a href="https://www.correiobraziliense.com.br/holofote/2023/04/5087028-entenda-a-transposicao-do-sao-francisco-e-por-que-ela-gera-duvidas.html" target="_blank" rel="noopener">Correio Braziliense</a></span>
+</section>
+
+<section aria-labelledby="h-quem">
+  <h2 id="h-quem">O que cada governo fez</h2>
+  <p class="sub lg">A transposição foi como uma corrida de revezamento: cada governo pegou a obra de um ponto e passou adiante.</p>
+  <div class="relay">
+    <div class="leg2" style="--c:var(--muted)"><span class="yr">Antes</span><div><h3>A ideia é antiga</h3><ul><li>Dom Pedro II mandou estudar a obra. O relatório saiu em 1860.</li><li>O projeto de hoje começou a ser desenhado em 1985.</li></ul></div></div>
+    <div class="leg2" style="--c:var(--g-pt)"><span class="yr">2007</span><div><h3>Lula 2: a obra começa</h3><ul><li>As obras começaram em 2007, com promessa de entrega em 2012.</li></ul></div></div>
+    <div class="leg2" style="--c:var(--g-pt)"><span class="yr">2011</span><div><h3>Dilma: a maior parte dos canais</h3><ul><li>Renegociou os contratos em 2011 e 2012, depois que as empreiteiras pediram mais dinheiro.</li><li>Cerca de 80% dos dois canais foram construídos com Lula e Dilma.</li></ul></div></div>
+    <div class="leg2" style="--c:var(--g-temer)"><span class="yr">2017</span><div><h3>Temer: o Eixo Leste funciona</h3><ul><li>Em março de 2017, o Eixo Leste começou a funcionar.</li></ul></div></div>
+    <div class="leg2" style="--c:var(--g-bolso)"><span class="yr">2019</span><div><h3>Bolsonaro: termina o Eixo Norte</h3><ul><li>Recebeu os canais com mais de 90% prontos.</li><li>Inaugurou o trecho do Eixo Norte que leva água ao Ceará, em 2020. Os dois canais ficaram prontos em 2021.</li><li>Entregou o Ramal do Agreste, em Pernambuco, em outubro de 2021.</li></ul></div></div>
+    <div class="leg2" style="--c:var(--g-pt)"><span class="yr">2023</span><div><h3>Lula 3: os ramais que faltavam</h3><ul><li>Inaugurou em 2024 a estação de bombas da Adutora do Agreste. Sem ela, o Ramal do Agreste não levava água às cidades.</li><li>Tocou o Ramal do Apodi, que leva água ao Rio Grande do Norte, e o Ramal do Salgado, no Ceará.</li><li>Lula prometeu terminar a obra em 2026.</li></ul></div></div>
+  </div>
+  <span class="src"><a href="https://crusoe.com.br/?p=238663" target="_blank" rel="noopener">Comprova, via Crusoé</a><a href="https://www.poder360.com.br/eleicoes/lula-e-bolsonaro-disputam-ganho-politico-do-rio-sao-francisco/" target="_blank" rel="noopener">Poder360: linha do tempo e 80%</a><a href="https://brasildefato.com.br/2022/02/10/bolsonaro-nao-levou-agua-ao-nordeste-transposicao-do-sao-francisco-estava-90-feita-em-2018/" target="_blank" rel="noopener">Comprova, via Brasil de Fato: mais de 90% em 2018</a><a href="https://www.correiobraziliense.com.br/holofote/2023/04/5087028-entenda-a-transposicao-do-sao-francisco-e-por-que-ela-gera-duvidas.html" target="_blank" rel="noopener">Correio Braziliense: início em 2007</a><a href="https://sbtnews.sbt.com.br/noticia/comprova/falso-e-falso-que-lula-tenha-inaugurado-obra-da-transposicao-do-sao-francisco-ja-inaugurada-por-bolsonaro" target="_blank" rel="noopener">Comprova, via SBT: Adutora do Agreste</a><a href="https://www.poder360.com.br/poder-governo/lula-promete-entregar-transposicao-do-sao-francisco-ate-dezembro/" target="_blank" rel="noopener">Poder360: promessa para 2026</a></span>
+</section>
+
+<section aria-labelledby="h-din">
+  <h2 id="h-din">Quem colocou mais dinheiro</h2>
+  <p class="sub lg">De 2008 a 2021, a União gastou R$ 14,6 bilhões na obra. Como esse dinheiro se divide:</p>
+  <div class="card">
+    <div class="stack" role="img" aria-label="PT 8,3 bilhões, Temer 2,8 bilhões, Bolsonaro até 2021 3,5 bilhões">
+      <i style="width:57%;background:var(--g-pt)">R$ 8,3 bi</i><i style="width:19%;background:var(--g-temer)">2,8</i><i style="width:24%;background:var(--g-bolso)">3,5</i>
+    </div>
+    <div class="leg"><span style="--c:var(--g-pt)"><i></i>Lula e Dilma, 2008–2015</span><span style="--c:var(--g-temer)"><i></i>Temer, 2016–2018</span><span style="--c:var(--g-bolso)"><i></i>Bolsonaro, 2019–2021</span></div>
+    <p class="note">Valores levantados pelo Poder360 em 2022. Não achamos uma conta igual para 2022 a 2026.</p>
+  </div>
+  <p class="lg">Por ano, o gasto foi parecido: cerca de R$ 1 bilhão com Lula e Dilma, um pouco menos com Temer e um pouco mais com Bolsonaro. A diferença é que os governos do PT ficaram mais anos com a obra.</p>
+  <span class="src"><a href="https://www.poder360.com.br/eleicoes/lula-e-bolsonaro-disputam-ganho-politico-do-rio-sao-francisco/" target="_blank" rel="noopener">Poder360: investimento por governo</a></span>
+</section>
+
+<section aria-labelledby="h-falta">
+  <h2 id="h-falta">O que ainda falta</h2>
+  <p class="sub lg">Os dois canais principais já funcionam. Faltam ramais que levam a água mais longe. Situação em julho de 2026:</p>
+  <div class="card tl" id="falta"></div>
+  <p class="lg">A obra foi prometida para 2012. Já atravessou seis governos e ainda não terminou.</p>
+  <span class="src"><a href="https://www.gov.br/ana/pt-br/assuntos/seguranca-hidrica/pisf/reunioes-tecnicas-de-acompanhamento/2026/julho/ajuda-de-memoria-julho-de-2026.pdf" target="_blank" rel="noopener">ANA: reunião de acompanhamento, julho de 2026</a><a href="https://www.correiobraziliense.com.br/holofote/2023/04/5087028-entenda-a-transposicao-do-sao-francisco-e-por-que-ela-gera-duvidas.html" target="_blank" rel="noopener">Correio Braziliense: seis governos</a></span>
+</section>
+
+<section aria-labelledby="h-vf">
+  <h2 id="h-vf">É verdade?</h2>
+  <div class="vf">
+    <div class="vfi"><span class="badge f">Falso</span><p><b>“A transposição é obra do Bolsonaro.”</b> A obra começou em 2007. Quando ele assumiu, mais de 90% dos dois canais já estavam prontos. Ele terminou trechos importantes, mas não fez a obra sozinho.</p></div>
+    <div class="vfi"><span class="badge f">Falso</span><p><b>“Bolsonaro não fez nada na transposição.”</b> Ele terminou o Eixo Norte, entregou o Ramal do Agreste e gastou R$ 3,5 bilhões de 2019 a 2021.</p></div>
+    <div class="vfi"><span class="badge m">Meia verdade</span><p><b>“A transposição é ideia do Lula.”</b> A ideia é do tempo de Dom Pedro II, e o projeto atual é de 1985. Foi Lula quem tirou a obra do papel.</p></div>
+    <div class="vfi"><span class="badge f">Falso</span><p><b>“Lula reinaugurou obra que Bolsonaro já tinha entregado.”</b> Em 2024 Lula inaugurou a estação de bombas da Adutora do Agreste, que é outra estrutura. Bolsonaro tinha entregado o Ramal do Agreste em 2021.</p></div>
+    <div class="vfi"><span class="badge f">Falso</span><p><b>“Lula mandou desligar as bombas da transposição.”</b> O Comprova checou e não é verdade. Uma das estações quebrou em novembro de 2022 e parou para conserto em 2023.</p></div>
+    <div class="vfi"><span class="badge f">Falso</span><p><b>“A obra já está pronta.”</b> Os canais principais funcionam, mas os ramais do Apodi e do Salgado ainda estavam em obra em julho de 2026.</p></div>
+    <div class="vfi"><span class="badge v">Verdade</span><p><b>“A obra atrasou muito.”</b> Era para ficar pronta em 2012.</p></div>
+  </div>
+  <span class="src"><a href="https://sbtnews.sbt.com.br/noticia/comprova/falso-e-falso-que-lula-tenha-inaugurado-obra-da-transposicao-do-sao-francisco-ja-inaugurada-por-bolsonaro" target="_blank" rel="noopener">Comprova, via SBT</a><a href="https://crusoe.com.br/?p=238663" target="_blank" rel="noopener">Comprova, via Crusoé: estação parada</a></span>
+</section>
+
+<section aria-labelledby="h-resumo">
+  <div class="verdict">
+    <h2 id="h-resumo">Resumindo</h2>
+    <ul>
+      <li>A transposição <b>não tem um dono só</b>. Passou por Lula, Dilma, Temer, Bolsonaro e Lula de novo.</li>
+      <li>A maior parte dos canais e do dinheiro veio dos governos <b>Lula e Dilma</b>.</li>
+      <li><b>Bolsonaro</b> terminou o Eixo Norte e o Ramal do Agreste.</li>
+      <li>A obra ainda <b>não acabou</b>: faltam ramais.</li>
+    </ul>
+  </div>
+</section>
+
+<details class="mais">
+  <summary>Quer ver todos os números? Toque aqui</summary>
+  <div class="mais-body">
+    <h3>Tamanho da obra</h3>
+    <table>
+      <tr><th>Parte</th><th>Tamanho</th></tr>
+      <tr><td>Eixo Norte</td><td>260 km</td></tr>
+      <tr><td>Eixo Leste</td><td>217 km</td></tr>
+      <tr><td>Ramal do Apodi</td><td>115 km</td></tr>
+      <tr><td>Ramal do Agreste</td><td>71 km</td></tr>
+      <tr><td>Ramal do Salgado</td><td>36 km</td></tr>
+    </table>
+    <span class="src"><a href="https://crusoe.com.br/?p=238663" target="_blank" rel="noopener">Comprova, via Crusoé</a></span>
+    <h3>Quanto estava pronto e quando</h3>
+    <p>O Poder360 analisou relatórios de 2018 e 2019 e concluiu que cerca de 80% dos dois canais foram construídos com Lula e Dilma. O Comprova calculou que pelo menos 92,5% da parte física dos dois canais estava pronta quando Bolsonaro assumiu. O trecho que ele inaugurou no Ceará em 2020 já tinha mais de 80% feitos em 2016. O ministério diz que partes prontas se estragaram e precisaram de conserto, e o Poder360 achou 9 obras extras desde 2016, que custaram R$ 50,5 milhões.</p>
+    <span class="src"><a href="https://www.poder360.com.br/eleicoes/lula-e-bolsonaro-disputam-ganho-politico-do-rio-sao-francisco/" target="_blank" rel="noopener">Poder360</a><a href="https://brasildefato.com.br/2022/02/10/bolsonaro-nao-levou-agua-ao-nordeste-transposicao-do-sao-francisco-estava-90-feita-em-2018/" target="_blank" rel="noopener">Brasil de Fato</a></span>
+    <h3>O que cada lado diz</h3>
+    <p>Em 2022, Bolsonaro disse que os caminhões-pipa no Nordeste caíram 30% “depois de concluída a transposição que nós fizemos”. Lula chama a obra de “a obra do século” e disse em 2025 que ela “já era para ter terminado”, culpando quem apoiou a saída de Dilma. O ex-ministro Rogério Marinho disse que a obra “não tem dono, é de todos os brasileiros” e culpou erros das gestões anteriores pelo atraso.</p>
+    <span class="src"><a href="https://oantagonista.com.br/brasil/bolsonaro-evoca-paternidade-sobre-transposicao-do-sao-francisco/" target="_blank" rel="noopener">O Antagonista</a><a href="https://www.poder360.com.br/poder-governo/quem-deu-golpe-nao-terminou-a-transposicao-do-sao-francisco-diz-lula/" target="_blank" rel="noopener">Poder360: Lula em 2025</a><a href="https://www.poder360.com.br/eleicoes/lula-e-bolsonaro-disputam-ganho-politico-do-rio-sao-francisco/" target="_blank" rel="noopener">Poder360: Marinho</a></span>
+    <h3>Obras de 2025</h3>
+    <p>Em maio de 2025, o governo previa entregar o primeiro trecho do Ramal do Apodi, na Paraíba, e assinar a ordem para dobrar a estação de bombas EBI-3, em Salgueiro (PE), de 24,75 para 49 mil litros por segundo. O Cinturão das Águas do Ceará estava com 83,5% feitos.</p>
+    <span class="src"><a href="https://movimentoeconomico.com.br/geral/redacao/2025/05/23/obras-lula-transposicao/" target="_blank" rel="noopener">Movimento Econômico</a></span>
+    <h3>Cisternas</h3>
+    <p>Outra forma de levar água ao sertão. De 2003 a 2018 (Lula, Dilma e Temer) foram entregues 929 mil cisternas para beber. De janeiro de 2019 a junho de 2022 (Bolsonaro), 37,6 mil.</p>
+    <span class="src"><a href="https://crusoe.com.br/?p=238663" target="_blank" rel="noopener">Comprova, via Crusoé</a></span>
+  </div>
+</details>
+
+<footer>
+  <p>Cada item traz o link da checagem, do órgão público ou da reportagem de onde saiu.</p>
+  <p>Atualizado em 9 de outubro de 2026.</p>
+</footer>
+</main>
+
+<script>
+(function(){
+const rows=[
+ ["Eixo Norte e Eixo Leste","os dois canais principais",100,"funcionando"],
+ ["Ramal do Agreste","Pernambuco",100,"pronto"],
+ ["Ramal do Apodi","etapa 1 pronta; etapa 2 com 97,6%",97.6,"97,6%"],
+ ["Ramal do Salgado","Ceará",56.7,"56,7%"]
+];
+document.getElementById('falta').innerHTML=rows.map(r=>`<div class="tr"><div class="lab">${r[0]}<span>${r[1]}</span></div><div class="t"><span class="f" style="--c:${r[2]>=100?'var(--ok)':'var(--accent)'};width:${r[2]}%">${r[3]}</span></div></div>`).join('');
+})();
+</script>
+
+</body></html>
