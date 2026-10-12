@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rota Velho Chico em ícones</title>
+<meta name="description" content="Quem fez a transposição do São Francisco, em ícones: o que cada governo fez, quanto dinheiro entrou em cada período e o que ainda falta.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fcarvalhodev.github.io/rotas/visual/visual.css">
+<style>
+:root{--accent:#94531a;--hero:#7a4415}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--accent:#e8a46a;--hero:#7a4415}}
+:root[data-theme="dark"]{--accent:#e8a46a;--hero:#7a4415}
+.hero{background:var(--hero);border-color:var(--hero)}.hero .go a{color:var(--hero)}
+</style>
+</head><body>
+<style>/* barra comum das Rotas */.rotas-bar{border-bottom:1px solid var(--line);background:var(--bg);font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase}.rotas-bar>div{max-width:880px;margin:0 auto;padding:10px 16px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px}.rotas-bar a{color:var(--muted);text-decoration:none;padding-block:2px;border-bottom:2px solid transparent}.rotas-bar a:hover{color:var(--ink)}.rotas-bar a[aria-current]{color:var(--ink);border-bottom-color:var(--accent)}.rotas-bar .rb-home{color:var(--accent);font-weight:600}.rv-btn{display:inline-flex;align-items:center;gap:8px;justify-self:start;font-family:var(--ui,system-ui);font-weight:800;font-size:16px;letter-spacing:.02em;text-decoration:none;color:var(--paper,#fff);background:var(--accent);padding:10px 16px;border-radius:999px;box-shadow:0 2px 0 rgba(0,0,0,.15)}.rv-btn:hover{filter:brightness(1.08)}.rv-btn:focus-visible{outline:3px solid var(--ink);outline-offset:2px}.rotas-bar a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}</style><style>/* padrão das Rotas: formato fácil */body{font-size:19px;line-height:1.7}h1{font-family:var(--display);font-stretch:62%;font-weight:900;font-size:clamp(46px,11vw,104px);line-height:.9;text-transform:uppercase;overflow-wrap:anywhere}h2{font-family:var(--display);font-stretch:66%;font-weight:800;font-size:clamp(34px,7vw,52px);line-height:.95;text-transform:uppercase}</style><nav class="rotas-bar" aria-label="Rotas"><div><a class="rb-home" href="https://fcarvalhodev.github.io/rotas/">Rotas</a><a href="https://fcarvalhodev.github.io/rota-washington/">Washington</a><a href="https://fcarvalhodev.github.io/rota-master/">Master</a><a href="https://fcarvalhodev.github.io/rota-curitiba/">Curitiba</a><a href="https://fcarvalhodev.github.io/rota-da-fe/">Fé</a><a href="https://fcarvalhodev.github.io/rota-esplanada/">Esplanada</a><a href="https://fcarvalhodev.github.io/rota-itamaraty/">Itamaraty</a><a href="https://fcarvalhodev.github.io/rota-da-picanha/">Picanha</a><a href="https://fcarvalhodev.github.io/rota-do-ibge/">IBGE</a><a href="https://fcarvalhodev.github.io/rota-velho-chico/" aria-current="page">Velho Chico</a><a href="https://fcarvalhodev.github.io/rota-do-tesouro/">Tesouro</a><a href="https://fcarvalhodev.github.io/rota-rouanet/">Rouanet</a><a href="https://fcarvalhodev.github.io/rota-dos-ventos/">Ventos</a></div></nav>
+
+
+<main class="rv" id="rv" aria-label="Rota Velho Chico em ícones"></main>
+<script>
+window.RV_DATA={
+ kicker:"Rota Velho Chico · em ícones",
+ title:"Quem fez a obra do São Francisco?",
+ answer:"A transposição é de <b>vários governos</b>. Começou em 2007, com Lula. A maior parte dos canais saiu com Lula e Dilma. Temer e Bolsonaro <b>terminaram trechos</b>. Lula 3 toca os <b>ramais que faltam</b>.",
+ heroIcons:["iso-gota","iso-onda","iso-cano","iso-raio","iso-casa","iso-gota","iso-caminhao","iso-onda","iso-cano","iso-gota"],
+ full:"index.html",
+ updated:"Dados até julho de 2026 · atualizado em 12 de outubro de 2026 · ícones próprios e Tabler Icons (MIT)",
+ cards:[
+  {type:"hero",span:"s4",rows:2},
+  {type:"flow",span:"s8",label:"Como funciona",title:"Do rio até a cidade",
+   steps:[
+    {icon:"iso-onda",name:"Rio São Francisco",sub:"a água sai daqui"},
+    {icon:"iso-raio",name:"Bombas",sub:"sobem a água pela serra"},
+    {icon:"iso-cano",name:"Dois canais",sub:"Eixo Norte e Eixo Leste"},
+    {icon:"iso-gota",name:"Açudes",sub:"guardam a água"},
+    {icon:"iso-casa",name:"Cidades",sub:"por ramais e adutoras",hot:true}],
+   src:[["Comprova, via Crusoé","https://crusoe.com.br/?p=238663"],["Correio Braziliense","https://www.correiobraziliense.com.br/holofote/2023/04/5087028-entenda-a-transposicao-do-sao-francisco-e-por-que-ela-gera-duvidas.html"]]},
+  {type:"iso",span:"s8",label:"Quem pode receber a água",title:"Até 12 milhões de pessoas em 390 cidades",size:22,
+   rows:[
+    {name:"Pessoas",icon:"iso-pessoa",n:12,value:"12 milhões",color:"var(--a)"},
+    {name:"Municípios de PE, PB, CE e RN",icon:"iso-casa",n:39,value:"390",color:"var(--accent)"}],
+   key:[{icon:"iso-pessoa",text:"1 milhão de pessoas",color:"var(--a)"},{icon:"iso-casa",text:"10 municípios",color:"var(--accent)"}],
+   text:"É quem pode ser atendido pelo projeto, não quem já recebe água todo dia.",
+   src:[["Comprova, via Crusoé","https://crusoe.com.br/?p=238663"],["MIDR: beneficiários potenciais","https://www.gov.br/mdr/pt-br/assuntos/seguranca-hidrica/projeto-sao-francisco"]]},
+  {type:"chips",span:"s6",label:"Uma corrida de revezamento",title:"Cada governo pegou a obra de um ponto e passou adiante",
+   items:[
+    ["Antes","A ideia é antiga","estudo de 1860, no tempo de Dom Pedro II; projeto atual de 1985","var(--d)"],
+    ["2007","Lula 2: a obra começa","promessa de entrega em 2012"],
+    ["2011","Dilma: a maior parte dos canais","renegociou os contratos em 2011 e 2012"],
+    ["2017","Temer: o Eixo Leste funciona","março de 2017"],
+    ["2019","Bolsonaro: termina o Eixo Norte","trecho do Ceará em 2020; Ramal do Agreste em 2021"],
+    ["2023","Lula 3: os ramais que faltavam","Adutora do Agreste em 2024; Apodi e Salgado"]],
+   src:[["Comprova, via Crusoé","https://crusoe.com.br/?p=238663"],["Poder360: linha do tempo","https://www.poder360.com.br/eleicoes/lula-e-bolsonaro-disputam-ganho-politico-do-rio-sao-francisco/"],["Correio Braziliense: início em 2007","https://www.correiobraziliense.com.br/holofote/2023/04/5087028-entenda-a-transposicao-do-sao-francisco-e-por-que-ela-gera-duvidas.html"],["Comprova, via SBT: Adutora do Agreste","https://sbtnews.sbt.com.br/noticia/comprova/falso-e-falso-que-lula-tenha-inaugurado-obra-da-transposicao-do-sao-francisco-ja-inaugurada-por-bolsonaro"]]},
+  {type:"iso",span:"s6",label:"Dinheiro da União na obra",title:"R$ 14,6 bilhões de 2008 a 2021",size:26,
+   rows:[
+    {name:"Lula e Dilma, 2008 a 2015",icon:"iso-moeda",n:8.3,value:"R$ 8,3 bi",color:"var(--accent)"},
+    {name:"Dilma e Temer, 2016 a 2018",icon:"iso-moeda",n:2.8,value:"R$ 2,8 bi",color:"var(--accent)"},
+    {name:"Bolsonaro, 2019 a 2021",icon:"iso-moeda",n:3.5,value:"R$ 3,5 bi",color:"var(--accent)"}],
+   key:{icon:"iso-moeda",text:"R$ 1 bilhão",color:"var(--accent)"},
+   text:"Períodos de tamanhos diferentes: perto de R$ 1 bi por ano em cada um. Ainda sem conta de 2022 a 2026.",
+   src:[["Poder360: investimento por governo","https://www.poder360.com.br/eleicoes/lula-e-bolsonaro-disputam-ganho-politico-do-rio-sao-francisco/"]]},
+  {type:"iso",span:"s6",label:"Quanto dos dois canais estava pronto",title:"Mais de 90% prontos quando Bolsonaro assumiu",size:24,
+   rows:[
+    {name:"Construído com Lula e Dilma",icon:"iso-bloco",n:8,ghost:2,value:"cerca de 80%",color:"var(--accent)"},
+    {name:"Pronto quando Bolsonaro assumiu",icon:"iso-bloco",n:9.25,ghost:.75,value:"pelo menos 92,5%",color:"var(--accent)"}],
+   key:{icon:"iso-bloco",text:"10% dos dois canais",color:"var(--accent)"},
+   text:"Contas diferentes (Poder360 e Comprova): não se somam. O ministério diz que partes prontas estragaram: 9 obras extras desde 2016, R$ 50,5 milhões.",
+   src:[["Poder360: 80%","https://www.poder360.com.br/eleicoes/lula-e-bolsonaro-disputam-ganho-politico-do-rio-sao-francisco/"],["Comprova, via Brasil de Fato: 92,5%","https://brasildefato.com.br/2022/02/10/bolsonaro-nao-levou-agua-ao-nordeste-transposicao-do-sao-francisco-estava-90-feita-em-2018/"]]},
+  {type:"iso",span:"s6",label:"O que falta · julho de 2026",title:"Os canais funcionam, faltam pedaços de dois ramais",size:24,
+   rows:[
+    {name:"Eixo Norte e Eixo Leste",icon:"iso-bloco",n:10,value:"funcionando",color:"var(--ok)"},
+    {name:"Ramal do Agreste",icon:"iso-bloco",n:10,value:"pronto",color:"var(--ok)"},
+    {name:"Ramal do Apodi, etapa 2",icon:"iso-bloco",n:9.76,ghost:.24,value:"97,6%",color:"var(--accent)"},
+    {name:"Ramal do Salgado",icon:"iso-bloco",n:5.67,ghost:4.33,value:"56,7%",color:"var(--accent)"}],
+   key:{icon:"iso-bloco",text:"10% pronto",color:"var(--accent)"},
+   text:"Era para ficar pronta em 2012. Já passou por seis governos.",
+   src:[["ANA: acompanhamento, julho de 2026","https://www.gov.br/ana/pt-br/assuntos/seguranca-hidrica/pisf/reunioes-tecnicas-de-acompanhamento/2026/julho/ajuda-de-memoria-julho-de-2026.pdf"],["Correio Braziliense: seis governos","https://www.correiobraziliense.com.br/holofote/2023/04/5087028-entenda-a-transposicao-do-sao-francisco-e-por-que-ela-gera-duvidas.html"]]},
+  {type:"iso",span:"s12",label:"Tamanho da obra",title:"Dois canais grandes e três ramais",size:24,
+   rows:[
+    {name:"Eixo Norte",icon:"iso-cano",n:26,value:"260 km",color:"var(--accent)"},
+    {name:"Eixo Leste",icon:"iso-cano",n:21.7,value:"217 km",color:"var(--accent)"},
+    {name:"Ramal do Apodi",icon:"iso-cano",n:11.5,value:"115 km",color:"var(--a)"},
+    {name:"Ramal do Agreste",icon:"iso-cano",n:7.1,value:"71 km",color:"var(--a)"},
+    {name:"Ramal do Salgado",icon:"iso-cano",n:3.6,value:"36 km",color:"var(--a)"}],
+   key:[{icon:"iso-cano",text:"10 km de canal",color:"var(--accent)"},{icon:"iso-cano",text:"10 km de ramal",color:"var(--a)"}],
+   src:[["Comprova, via Crusoé","https://crusoe.com.br/?p=238663"]]},
+  {type:"verdicts",span:"s12",label:"É verdade?",
+   items:[["f","“A transposição é obra do Bolsonaro.”"],["f","“Bolsonaro não fez nada na transposição.”"],["m","“A transposição é ideia do Lula.”"],["f","“Lula reinaugurou obra que Bolsonaro já tinha entregado.”"],["f","“Lula mandou desligar as bombas da transposição.”"],["f","“A obra já está pronta.”"],["v","“A obra atrasou muito.”"]]}
+ ]};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://fcarvalhodev.github.io/rotas/visual/icons.js"></script>
+<script src="https://fcarvalhodev.github.io/rotas/visual/visual.js"></script>
+</body></html>
