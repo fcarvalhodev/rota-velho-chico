@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Has the Water Arrived?</title>
+<meta name="description" content="The São Francisco river diversion has many fathers and lots of talk. Navigate the claims and say which ones reach their destination.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fcarvalhodev.github.io/rotas/jogos/jogo.css">
+<style>
+:root{--accent:#94531a;--hero:#7a4415}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--accent:#e8a46a;--hero:#7a4415}}
+:root[data-theme="dark"]{--accent:#e8a46a;--hero:#7a4415}
+.hero{background:var(--hero);border-color:var(--hero)}.hero .go a{color:var(--hero)}
+</style>
+</head><body>
+<style>/* barra comum das Rotas */.rotas-bar .rb-lang{margin-left:auto;color:var(--accent);font-weight:600}.rotas-bar{border-bottom:1px solid var(--line);background:var(--bg);font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase}.rotas-bar>div{max-width:880px;margin:0 auto;padding:10px 16px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px}.rotas-bar a{color:var(--muted);text-decoration:none;padding-block:2px;border-bottom:2px solid transparent}.rotas-bar a:hover{color:var(--ink)}.rotas-bar a[aria-current]{color:var(--ink);border-bottom-color:var(--accent)}.rotas-bar .rb-home{color:var(--accent);font-weight:600}.rv-btn{display:inline-flex;align-items:center;gap:8px;justify-self:start;font-family:var(--ui,system-ui);font-weight:800;font-size:16px;letter-spacing:.02em;text-decoration:none;color:var(--paper,#fff);background:var(--accent);padding:10px 16px;border-radius:999px;box-shadow:0 2px 0 rgba(0,0,0,.15)}.rv-btn:hover{filter:brightness(1.08)}.rv-btn:focus-visible{outline:3px solid var(--ink);outline-offset:2px}.rotas-bar a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}</style><nav class="rotas-bar" aria-label="Routes"><div><a class="rb-home" href="https://fcarvalhodev.github.io/rotas/en/">Routes</a><a href="https://fcarvalhodev.github.io/rota-washington/en/">Washington</a><a href="https://fcarvalhodev.github.io/rota-master/en/">Master</a><a href="https://fcarvalhodev.github.io/rota-curitiba/en/">Curitiba</a><a href="https://fcarvalhodev.github.io/rota-da-fe/en/">Faith</a><a href="https://fcarvalhodev.github.io/rota-esplanada/en/">Esplanada</a><a href="https://fcarvalhodev.github.io/rota-itamaraty/en/">Itamaraty</a><a href="https://fcarvalhodev.github.io/rota-da-picanha/en/">Picanha</a><a href="https://fcarvalhodev.github.io/rota-do-ibge/en/">IBGE</a><a href="https://fcarvalhodev.github.io/rota-velho-chico/en/" aria-current="page">Velho Chico</a><a href="https://fcarvalhodev.github.io/rota-do-tesouro/en/">Treasury</a><a href="https://fcarvalhodev.github.io/rota-rouanet/en/">Rouanet</a><a href="https://fcarvalhodev.github.io/rota-dos-ventos/en/">Winds</a><a href="https://fcarvalhodev.github.io/rota-do-algoritmo/en/">Algorithm</a><a href="https://fcarvalhodev.github.io/rota-do-posto/en/">Pump</a><a href="https://fcarvalhodev.github.io/rota-das-queimadas/en/">Fires</a><a href="https://fcarvalhodev.github.io/rota-dos-games/en/">Games</a><a href="https://fcarvalhodev.github.io/rota-do-contracheque/en/">Paycheck</a><a href="https://fcarvalhodev.github.io/rota-palantir/en/">Palantir</a><a class="rb-lang" href="../quiz.html" hreflang="pt-BR" lang="pt-BR">PT</a></div></nav>
+<main class="jg" id="jg" aria-live="polite"><noscript>This game needs JavaScript. <a href="index.html">Read the route</a>.</noscript></main>
+<script>
+window.JG_DATA={
+ "kicker": "Rota Velho Chico · game",
+ "title": "Has the Water Arrived?",
+ "host": [
+  "🌊",
+  "São Francisco boatman"
+ ],
+ "emo": "🚰",
+ "intro": "The São Francisco river diversion has many fathers and lots of talk. Navigate the claims and say which ones reach their destination.",
+ "rounds": [
+  {
+   "type": "boato",
+   "title": "Current of rumours",
+   "how": "read the claim going around and say whether it is True, Half true, False or No proof.",
+   "n": 7,
+   "items": [
+    {
+     "c": "The river diversion is Bolsonaro's work.",
+     "v": "f",
+     "e": "The project began in 2007. When he took office, more than 90% of the two canals were already finished. He completed important stretches, but did not build it alone.",
+     "s": []
+    },
+    {
+     "c": "Bolsonaro did nothing on the river diversion.",
+     "v": "f",
+     "e": "He finished the North Axis, delivered the Agreste Branch and spent R$3.5 billion from 2019 to 2021.",
+     "s": []
+    },
+    {
+     "c": "The river diversion was Lula's idea.",
+     "v": "m",
+     "e": "The idea dates back to Emperor Pedro II, and the current project is from 1985. Lula is the one who got construction started.",
+     "s": []
+    },
+    {
+     "c": "Lula re-inaugurated a work Bolsonaro had already delivered.",
+     "v": "f",
+     "e": "In 2024 Lula inaugurated the Agreste Pipeline pumping station, which is a different structure. Bolsonaro had delivered the Agreste Branch in 2021.",
+     "s": []
+    },
+    {
+     "c": "Lula ordered the river diversion pumps shut off.",
+     "v": "f",
+     "e": "Comprova checked and it is not true. One of the stations broke down in November 2022 and stopped for repairs in 2023.",
+     "s": []
+    },
+    {
+     "c": "The project is already finished.",
+     "v": "f",
+     "e": "The main canals work, but the Apodi and Salgado branches were still under construction in July 2026.",
+     "s": []
+    },
+    {
+     "c": "The project was very late.",
+     "v": "v",
+     "e": "It was supposed to be finished in 2012.",
+     "s": []
+    }
+   ]
+  }
+ ],
+ "ranks": [
+  [
+   0,
+   "Ran aground on the first stretch."
+  ],
+  [
+   40,
+   "Water halfway down the canal."
+  ],
+  [
+   65,
+   "Reached the reservoir."
+  ],
+  [
+   90,
+   "Water in the tap: mission accomplished."
+  ]
+ ],
+ "quips": {
+  "ok": [
+   "Right! Go ahead and publish.",
+   "Spot on. The source thanks you.",
+   "Correct. The family group chat will have to swallow it.",
+   "Nice! Old-school fact-checker."
+  ],
+  "no": [
+   "Wrong. But at least you did not share it.",
+   "Close. Read the explanation before forwarding it.",
+   "Not this time. It happens to journalists too.",
+   "Oops. The group-chat aunt won this one."
+  ]
+ },
+ "full": "index.html",
+ "updated": "Rotas · Rota Velho Chico"
+};
+</script>
+<script src="https://fcarvalhodev.github.io/rotas/jogos/jogo.js"></script>
+</body></html>

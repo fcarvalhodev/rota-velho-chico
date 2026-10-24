@@ -1,116 +1,225 @@
 <!doctype html>
 <html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>A Água Chegou?</title>
-<meta name="description" content="A transposição do São Francisco tem muitos pais e muita conversa. Navegue pelas frases e diga quais chegam ao destino.">
+<title>Corte a Fita</title>
+<meta name="description" content="Jogo da Rota Velho Chico: gire os canais para levar a água do São Francisco ao sertão e descubra qual presidente pode cortar a fita de cada etapa.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="https://fcarvalhodev.github.io/rotas/jogos/jogo.css">
+<style>
+:root{
+  --bg:#f3f1ea; --paper:#fbfaf6; --ink:#1c1b1f; --muted:#5b5a63; --line:#d9d5ca; --soft:#ebe7dc;
+  --doc:#1f6b45; --doc-soft:#dcefe3; --open:#5b4bb0; --open-soft:#e7e3f6; --alleg:#a3501a; --alleg-soft:#f8e6d7; --no:#a12a2a; --no-soft:#f6dede;
+  --display:"Archivo","Arial Narrow",Impact,sans-serif;
+  --ui:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#121216; --paper:#1a1a20; --ink:#ecebf0; --muted:#a3a2ad; --line:#2e2d36; --soft:#24232b;
+  --doc:#6fd39c; --doc-soft:#173326; --open:#ab9ff0; --open-soft:#29254a; --alleg:#f0a066; --alleg-soft:#3a2516; --no:#f19b9b; --no-soft:#3a1c1c;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121216; --paper:#1a1a20; --ink:#ecebf0; --muted:#a3a2ad; --line:#2e2d36; --soft:#24232b;
+  --doc:#6fd39c; --doc-soft:#173326; --open:#ab9ff0; --open-soft:#29254a; --alleg:#f0a066; --alleg-soft:#3a2516; --no:#f19b9b; --no-soft:#3a1c1c;
+  color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;padding-bottom:env(safe-area-inset-bottom,0px)}
+[hidden]{display:none!important}
+a{color:inherit}
+.wrap{max-width:860px;margin:0 auto;padding-inline:16px}
+header.g{padding-block:26px 8px;display:grid;gap:10px}
+.kicker{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+h1{margin:0;font-family:var(--display);font-stretch:62%;font-weight:900;font-size:clamp(52px,13vw,104px);line-height:.86;text-transform:uppercase;overflow-wrap:anywhere}
+h2{font-family:var(--display);font-stretch:66%;font-weight:800;font-size:clamp(30px,6.5vw,44px);line-height:.95;text-transform:uppercase;margin:0 0 10px}
+h3{font-family:var(--ui);font-size:19px;line-height:1.25;margin:0 0 6px}
+.lede{margin:0;max-width:64ch;font-size:18px}
+.how{margin:0;font-family:var(--ui);font-size:15px;color:var(--muted)}
+.btn{font-family:var(--ui);font-weight:800;font-size:17px;border:0;border-radius:999px;padding:12px 20px;background:var(--accent);color:var(--paper);cursor:pointer;min-height:48px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;justify-content:center}
+.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--line)}
+.btn:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.btn[disabled]{opacity:.45;cursor:default}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.tg{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:2px 9px;border-radius:999px;white-space:nowrap;vertical-align:2px}
+.tg.doc{background:var(--doc-soft);color:var(--doc);border:1px solid var(--doc)}
+.tg.open{background:var(--open-soft);color:var(--open);border:1px dashed var(--open)}
+.tg.alleg{background:var(--alleg-soft);color:var(--alleg);border:1px solid var(--alleg)}
+.tg.no{background:var(--no-soft);color:var(--no);border:1px solid var(--no)}
+.facts{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.facts li{background:var(--paper);border:1px solid var(--line);border-left:5px solid var(--c,var(--line));border-radius:8px;padding:12px 14px}
+.facts li b{font-family:var(--ui)}
+.facts li small{display:block;margin-top:4px;font-family:var(--ui);font-size:13px;color:var(--muted)}
+.facts li small a{color:var(--muted)}
+.facts .yr{font-family:var(--mono);font-size:12px;color:var(--muted);margin-right:6px}
+section.blk{margin-block:26px}
+.note{font-family:var(--ui);font-size:14px;color:var(--muted)}
+.end{border:2px solid var(--accent);border-radius:12px;background:var(--paper);padding:18px;display:grid;gap:12px}
+footer.g{margin-block:36px 28px;font-family:var(--ui);font-size:14px;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
 <style>
 :root{--accent:#94531a;--hero:#7a4415}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--accent:#e8a46a;--hero:#7a4415}}
 :root[data-theme="dark"]{--accent:#e8a46a;--hero:#7a4415}
-.hero{background:var(--hero);border-color:var(--hero)}.hero .go a{color:var(--hero)}
+
+</style>
+<style>
+.game{display:grid;gap:12px;margin-top:8px}
+.hud{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;font-family:var(--ui)}
+.hud b{font-family:var(--display);font-stretch:70%;font-weight:900;font-size:36px;line-height:1;color:var(--accent)}
+.hud span{font-size:15px;color:var(--muted)}
+.map{display:grid;grid-template-columns:30px 1fr 30px;gap:4px;align-items:center;max-width:560px;width:100%;margin-inline:auto}
+.route{margin:0;font-family:var(--ui);font-size:15px}.route b{color:var(--muted);font-weight:700}
+.side{position:relative;align-self:stretch;width:30px}
+.mk{position:absolute;left:50%;transform:translate(-50%,-50%);font-size:24px;line-height:1}
+.mk.dry{filter:grayscale(1);opacity:.6}.mk.wet{filter:none;opacity:1}
+.end-l,.end-r{font-family:var(--ui);font-size:12px;font-weight:800;text-align:center;writing-mode:vertical-rl;transform:rotate(180deg);padding:6px 2px;border-radius:8px;line-height:1.1}
+.end-l{background:#1d5fa8;color:#fff}
+.end-r{background:#c8a96a;color:#2a1d07}
+.end-r.wet{background:#1d5fa8;color:#fff}
+.grid{display:grid;gap:3px;background:#b98e55;padding:6px;border-radius:12px;border:3px solid #7d5a2e}
+.t{aspect-ratio:1;border:0;padding:0;border-radius:6px;background:#e3c48e;cursor:pointer;display:block;position:relative}
+.t svg{width:100%;height:100%;display:block;transition:transform .18s ease}
+.t path{stroke:#8a6a3a;stroke-width:18;stroke-linecap:round;fill:none}
+.t.wet path{stroke:#1d6fd0}
+.t.lock{background:repeating-linear-gradient(45deg,#f2c94c 0 10px,#1c1b1f 10px 20px);cursor:not-allowed}
+.t.lock path{stroke:#6b5a3a}
+.t.lock::after{content:"🚧";position:absolute;inset:0;display:grid;place-items:center;font-size:26px}
+.t:focus-visible{outline:3px solid var(--ink);outline-offset:1px}
+.msg{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-family:var(--ui);font-size:15px;line-height:1.45;min-height:48px}
+.msg:empty{display:none}
+.ribbon{display:grid;gap:10px;background:var(--paper);border:2px solid var(--accent);border-radius:12px;padding:12px}
+.ribbon h3{margin:0}
+.track{position:relative;height:118px}
+.band{position:absolute;left:0;right:0;top:40px;height:14px;background:#d61f2c;border-radius:4px}
+.band.cut{background:linear-gradient(90deg,#d61f2c 0 46%,transparent 46% 54%,#d61f2c 54%)}
+.pres{position:absolute;top:60px;display:grid;justify-items:center;transform:translateX(-50%);font-family:var(--ui);font-size:12px;font-weight:700;line-height:1.1;text-align:center;width:19%}
+.pres .f{font-size:26px}
+.pres small{font-weight:400;color:var(--muted)}
+.pres.ok{color:var(--doc)}
+.sc{position:absolute;top:0;font-size:34px;transform:translateX(-50%);line-height:1}
+.ribbon .row .btn{flex:1 1 200px}
+.end h2{margin:0}
 </style>
 </head><body>
 <style>/* barra comum das Rotas */.rotas-bar .rb-lang{margin-left:auto;color:var(--accent);font-weight:600}.rotas-bar{border-bottom:1px solid var(--line);background:var(--bg);font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase}.rotas-bar>div{max-width:880px;margin:0 auto;padding:10px 16px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px}.rotas-bar a{color:var(--muted);text-decoration:none;padding-block:2px;border-bottom:2px solid transparent}.rotas-bar a:hover{color:var(--ink)}.rotas-bar a[aria-current]{color:var(--ink);border-bottom-color:var(--accent)}.rotas-bar .rb-home{color:var(--accent);font-weight:600}.rv-btn{display:inline-flex;align-items:center;gap:8px;justify-self:start;font-family:var(--ui,system-ui);font-weight:800;font-size:16px;letter-spacing:.02em;text-decoration:none;color:var(--paper,#fff);background:var(--accent);padding:10px 16px;border-radius:999px;box-shadow:0 2px 0 rgba(0,0,0,.15)}.rv-btn:hover{filter:brightness(1.08)}.rv-btn:focus-visible{outline:3px solid var(--ink);outline-offset:2px}.rotas-bar a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}</style><nav class="rotas-bar" aria-label="Rotas"><div><a class="rb-home" href="https://fcarvalhodev.github.io/rotas/">Rotas</a><a href="https://fcarvalhodev.github.io/rota-washington/">Washington</a><a href="https://fcarvalhodev.github.io/rota-master/">Master</a><a href="https://fcarvalhodev.github.io/rota-curitiba/">Curitiba</a><a href="https://fcarvalhodev.github.io/rota-da-fe/">Fé</a><a href="https://fcarvalhodev.github.io/rota-esplanada/">Esplanada</a><a href="https://fcarvalhodev.github.io/rota-itamaraty/">Itamaraty</a><a href="https://fcarvalhodev.github.io/rota-da-picanha/">Picanha</a><a href="https://fcarvalhodev.github.io/rota-do-ibge/">IBGE</a><a href="https://fcarvalhodev.github.io/rota-velho-chico/" aria-current="page">Velho Chico</a><a href="https://fcarvalhodev.github.io/rota-do-tesouro/">Tesouro</a><a href="https://fcarvalhodev.github.io/rota-rouanet/">Rouanet</a><a href="https://fcarvalhodev.github.io/rota-dos-ventos/">Ventos</a><a href="https://fcarvalhodev.github.io/rota-do-algoritmo/">Algoritmo</a><a href="https://fcarvalhodev.github.io/rota-do-posto/">Posto</a><a href="https://fcarvalhodev.github.io/rota-das-queimadas/">Queimadas</a><a href="https://fcarvalhodev.github.io/rota-dos-games/">Games</a><a href="https://fcarvalhodev.github.io/rota-do-contracheque/">Contracheque</a><a href="https://fcarvalhodev.github.io/rota-palantir/">Palantir</a><a class="rb-lang" href="en/jogo.html" hreflang="en" lang="en">EN</a></div></nav>
-<main class="jg" id="jg" aria-live="polite"><noscript>Este jogo precisa de JavaScript. <a href="index.html">Ler a rota</a>.</noscript></main>
+<main class="wrap">
+<header class="g">
+  <span class="kicker">Rota Velho Chico · jogo</span>
+  <h1>Corte a Fita</h1>
+  <p class="lede">A transposição do São Francisco atravessou seis governos, e todo presidente quer aparecer na foto da inauguração. Leve a água etapa por etapa e entregue a tesoura para quem fez cada parte.</p>
+  <p class="how">Como jogar: toque nos pedaços de canal para girar até a água ir do rio ao destino. Depois, corte a fita na hora certa. São cinco etapas, de 2007 a 2026.</p>
+</header>
+
+<div class="game">
+  <div class="hud" aria-live="polite"><b id="yr">2007</b><span id="st">A obra começa</span></div>
+  <p class="route"><b>De:</b> 🏞️ Rio São Francisco <b>Para:</b> 🏘️ <span id="to"></span></p>
+  <div class="map">
+    <div class="side"><span class="mk" id="mL" aria-hidden="true">🏞️</span></div>
+    <div class="grid" id="grid" role="group" aria-label="Canais: toque em um pedaço para girar"></div>
+    <div class="side"><span class="mk dry" id="mR" aria-hidden="true">🏘️</span></div>
+  </div>
+  <div class="msg" id="msg" aria-live="polite">Gire os pedaços de canal até a água sair do rio, à esquerda, e chegar ao destino, à direita.</div>
+  <div class="ribbon" id="rib" hidden>
+    <h3>Hora da inauguração! Quem corta a fita?</h3>
+    <p class="note" style="margin:0">Todo presidente quer aparecer na foto. Aperte o botão quando a tesoura estiver em cima de quem fez esta parte.</p>
+    <div class="track" id="track"><div class="band" id="band"></div><span class="sc" id="sc" aria-hidden="true">✂️</span></div>
+    <div class="row"><button class="btn" type="button" id="cut">✂️ Cortar a fita!</button></div>
+    <div class="msg" id="ribMsg" aria-live="polite"></div>
+  </div>
+</div>
+<section class="blk end" id="end" hidden aria-live="polite">
+  <h2>A água ainda não chegou em todo lugar</h2>
+  <p>Você passou por cinco governos e a obra continua. Na vida real, é igual: cada presidente pegou a obra de um ponto e passou adiante, e cada um quer a foto da inauguração.</p>
+  <ul class="facts" id="endF"></ul>
+  <div class="row"><button class="btn" type="button" id="again">Jogar de novo</button><a class="btn ghost" href="index.html">Ler a Rota Velho Chico</a></div>
+</section>
+<section class="blk">
+  <h2>Diário da obra</h2>
+  <ul class="facts" id="log"></ul>
+</section>
+
+<footer class="g">
+  <p>Fatos até julho de 2026. Investigação não é condenação. Cada fato do jogo tem fonte; os selos seguem a <a href="https://fcarvalhodev.github.io/rotas/metodologia.html">metodologia das Rotas</a>.</p>
+  <p class="row"><a class="btn ghost" href="index.html">Ler a rota completa</a><a class="btn ghost" href="quiz.html">Fazer o quiz da rota</a></p>
+</footer>
+</main>
 <script>
-window.JG_DATA={
- "kicker": "Rota Velho Chico · jogo",
- "title": "A Água Chegou?",
- "host": [
-  "🌊",
-  "Barqueiro do São Francisco"
- ],
- "emo": "🚰",
- "intro": "A transposição do São Francisco tem muitos pais e muita conversa. Navegue pelas frases e diga quais chegam ao destino.",
- "rounds": [
-  {
-   "type": "boato",
-   "title": "Correnteza de boatos",
-   "how": "leia a frase que circula e diga se é Verdade, Meia verdade, Falso ou Sem prova.",
-   "n": 7,
-   "items": [
-    {
-     "c": "A transposição é obra do Bolsonaro.",
-     "v": "f",
-     "e": "A obra começou em 2007. Quando ele assumiu, mais de 90% dos dois canais já estavam prontos. Ele terminou trechos importantes, mas não fez a obra sozinho.",
-     "s": []
-    },
-    {
-     "c": "Bolsonaro não fez nada na transposição.",
-     "v": "f",
-     "e": "Ele terminou o Eixo Norte, entregou o Ramal do Agreste e gastou R$ 3,5 bilhões de 2019 a 2021.",
-     "s": []
-    },
-    {
-     "c": "A transposição é ideia do Lula.",
-     "v": "m",
-     "e": "A ideia é do tempo de Dom Pedro II, e o projeto atual é de 1985. Foi Lula quem tirou a obra do papel.",
-     "s": []
-    },
-    {
-     "c": "Lula reinaugurou obra que Bolsonaro já tinha entregado.",
-     "v": "f",
-     "e": "Em 2024 Lula inaugurou a estação de bombas da Adutora do Agreste, que é outra estrutura. Bolsonaro tinha entregado o Ramal do Agreste em 2021.",
-     "s": []
-    },
-    {
-     "c": "Lula mandou desligar as bombas da transposição.",
-     "v": "f",
-     "e": "O Comprova checou e não é verdade. Uma das estações quebrou em novembro de 2022 e parou para conserto em 2023.",
-     "s": []
-    },
-    {
-     "c": "A obra já está pronta.",
-     "v": "f",
-     "e": "Os canais principais funcionam, mas os ramais do Apodi e do Salgado ainda estavam em obra em julho de 2026.",
-     "s": []
-    },
-    {
-     "c": "A obra atrasou muito.",
-     "v": "v",
-     "e": "Era para ficar pronta em 2012.",
-     "s": []
-    }
-   ]
-  }
- ],
- "ranks": [
-  [
-   0,
-   "Encalhou no primeiro trecho."
-  ],
-  [
-   40,
-   "Água pela metade do canal."
-  ],
-  [
-   65,
-   "Chegou ao açude."
-  ],
-  [
-   90,
-   "Água na torneira: missão cumprida."
-  ]
- ],
- "quips": {
-  "ok": [
-   "Isso! Pode publicar.",
-   "Na mosca. A fonte agradece.",
-   "Acertou. O grupo da família vai ter que engolir.",
-   "Boa! Checador raiz."
-  ],
-  "no": [
-   "Errou. Mas pelo menos você não compartilhou.",
-   "Quase. Leia a explicação antes de mandar no zap.",
-   "Não foi dessa vez. Acontece até com jornalista.",
-   "Ops. A tia do zap venceu essa."
-  ]
- },
- "full": "index.html",
- "updated": "Rotas · Rota Velho Chico"
-};
+
+const LBL={doc:"Documentado",open:"Em aberto",alleg:"Alegação",no:"Não demonstrado"};
+const $=id=>document.getElementById(id);
+function factLi(f,withYear){
+ const li=document.createElement("li");li.style.setProperty("--c","var(--"+f.ev+")");
+ const tg=document.createElement("span");tg.className="tg "+f.ev;tg.textContent=LBL[f.ev];
+ const b=document.createElement("b");b.textContent=" "+f.t+(/[?!.…]$/.test(f.t)?" ":". ");
+ if(withYear&&f.y){const y=document.createElement("span");y.className="yr";y.textContent=f.y;li.append(y)}
+ li.append(tg,b,document.createTextNode(f.b+" "));
+ if(f.src){const sm=document.createElement("small");const a=document.createElement("a");a.href=f.src[1];a.target="_blank";a.rel="noopener";a.textContent="Fonte: "+f.src[0];sm.append(a);li.append(sm)}
+ return li;
+}
+const PRES=[{"id": "lula1", "n": "Lula", "y": "2003–2010"}, {"id": "dilma", "n": "Dilma", "y": "2011–2016"}, {"id": "temer", "n": "Temer", "y": "2016–2018"}, {"id": "bolso", "n": "Bolsonaro", "y": "2019–2022"}, {"id": "lula3", "n": "Lula", "y": "2023–"}];
+const LEVELS=[{"y": "2007", "st": "A obra começa", "R": 3, "C": 4, "to": "Canteiro de obras", "path": [[1, 0], [1, 1], [0, 1], [0, 2], [0, 3]], "who": "lula1", "f": {"ev": "doc", "t": "2007: a obra começa", "b": "As obras da transposição começaram em 2007, com Lula, com promessa de entrega em 2012. A ideia é antiga: Dom Pedro II mandou estudar a obra, e o relatório saiu em 1860.", "src": ["Correio Braziliense", "https://www.correiobraziliense.com.br/holofote/2023/04/5087028-entenda-a-transposicao-do-sao-francisco-e-por-que-ela-gera-duvidas.html"]}}, {"y": "2011", "st": "A maior parte dos canais", "R": 4, "C": 4, "to": "Açude no sertão", "path": [[2, 0], [2, 1], [1, 1], [1, 2], [2, 2], [3, 2], [3, 3]], "who": "dilma", "f": {"ev": "doc", "t": "2011: a maior parte dos canais", "b": "Dilma renegociou os contratos em 2011 e 2012, depois que as empreiteiras pediram mais dinheiro. Cerca de 80% dos dois canais foram construídos com Lula e Dilma.", "src": ["Poder360: linha do tempo e 80%", "https://www.poder360.com.br/eleicoes/lula-e-bolsonaro-disputam-ganho-politico-do-rio-sao-francisco/"]}}, {"y": "2017", "st": "O Eixo Leste funciona", "R": 4, "C": 5, "to": "Eixo Leste: Pernambuco e Paraíba", "path": [[0, 0], [0, 1], [1, 1], [2, 1], [2, 2], [2, 3], [1, 3], [1, 4]], "who": "temer", "f": {"ev": "doc", "t": "2017: o Eixo Leste funciona", "b": "Em março de 2017, com Temer, o Eixo Leste, de 217 km, começou a funcionar.", "src": ["Comprova, via Crusoé", "https://crusoe.com.br/?p=238663"]}}, {"y": "2020–2021", "st": "O Eixo Norte e o Ramal do Agreste", "R": 5, "C": 5, "to": "Eixo Norte: Ceará", "path": [[4, 0], [4, 1], [3, 1], [2, 1], [2, 2], [1, 2], [1, 3], [2, 3], [3, 3], [3, 4]], "who": "bolso", "f": {"ev": "doc", "t": "2020 e 2021: o Eixo Norte", "b": "Bolsonaro recebeu os canais com mais de 90% prontos. Inaugurou o trecho do Eixo Norte que leva água ao Ceará em 2020, e os dois canais ficaram prontos em 2021. Entregou o Ramal do Agreste em outubro de 2021.", "src": ["Comprova, via Brasil de Fato: mais de 90% em 2018", "https://brasildefato.com.br/2022/02/10/bolsonaro-nao-levou-agua-ao-nordeste-transposicao-do-sao-francisco-estava-90-feita-em-2018/"]}}, {"y": "2024–2026", "st": "Os ramais que faltavam", "R": 5, "C": 5, "to": "Ramal do Apodi: Rio Grande do Norte", "path": [[1, 0], [1, 1], [2, 1], [3, 1], [3, 2], [3, 3], [2, 3], [2, 4]], "who": "lula3", "lock": 5, "f": {"ev": "doc", "t": "2024 a 2026: os ramais", "b": "Em 2024, Lula inaugurou a estação de bombas da Adutora do Agreste; sem ela, o Ramal do Agreste não levava água às cidades. O Ramal do Apodi, que leva água ao Rio Grande do Norte, e o do Salgado, no Ceará, seguiam em obras em julho de 2026.", "src": ["Comprova, via SBT: Adutora do Agreste", "https://sbtnews.sbt.com.br/noticia/comprova/falso-e-falso-que-lula-tenha-inaugurado-obra-da-transposicao-do-sao-francisco-ja-inaugurada-por-bolsonaro"]}}];
+const END=[{"ev": "doc", "t": "Quem pôs mais dinheiro", "b": "De 2008 a 2021, a União gastou R$ 14,6 bilhões na obra: R$ 8,3 bilhões de 2008 a 2015, com Lula e Dilma; R$ 2,8 bilhões de 2016 a 2018, com Dilma e Temer; e R$ 3,5 bilhões de 2019 a 2021, com Bolsonaro.", "src": ["Poder360: linha do tempo e 80%", "https://www.poder360.com.br/eleicoes/lula-e-bolsonaro-disputam-ganho-politico-do-rio-sao-francisco/"]}, {"ev": "doc", "t": "Seis governos e ainda não acabou", "b": "A obra foi prometida para 2012. Já atravessou seis governos. Os dois canais principais funcionam; faltam ramais que levam a água mais longe.", "src": ["ANA: acompanhamento, julho de 2026", "https://www.gov.br/ana/pt-br/assuntos/seguranca-hidrica/pisf/reunioes-tecnicas-de-acompanhamento/2026/julho/ajuda-de-memoria-julho-de-2026.pdf"]}];
+const WRONG=["“Ei, essa parte não foi sua!”", "“Pode largar a tesoura, não foi no seu governo.”", "“Inauguração dos outros não vale.”", "“Calma, a foto é de outro presidente.”"];
+
+// directions: 0 N, 1 E, 2 S, 3 W. tiles: I (rot0 E-W, rot1 N-S), L (rot0 N-E, rot1 E-S, rot2 S-W, rot3 W-N)
+const OPEN={I:[[1,3],[0,2]],L:[[0,1],[1,2],[2,3],[3,0]]};
+const D=[[-1,0],[0,1],[1,0],[0,-1]];
+let li,tiles,R,C,solved,scx,scDir,scRaf,tries;
+function rng(seed){let s=seed;return()=>{s=(s*16807)%2147483647;return(s-1)/2147483646}}
+function opens(t){return OPEN[t.k][t.r%(t.k==="I"?2:4)]}
+function need(a,b){for(let d=0;d<4;d++)if(a[0]+D[d][0]===b[0]&&a[1]+D[d][1]===b[1])return d}
+function svg(k){const p=k==="I"?"M0 50 H100":"M50 0 V50 H100";return '<svg viewBox="0 0 100 100" aria-hidden="true"><path d="'+p+'"/></svg>'}
+function rot(el,t){el.querySelector("svg").style.transform="rotate("+((t.k==="I"?t.r%2:t.r%4)*90)+"deg)"}
+function setup(){const L=LEVELS[li];R=L.R;C=L.C;solved=false;tries=0;const rnd=rng(li*97+13);
+ tiles=[];for(let r=0;r<R;r++){tiles.push([]);for(let c=0;c<C;c++)tiles[r].push({k:rnd()<.5?"I":"L",r:Math.floor(rnd()*4),lock:false})}
+ L.path.forEach((p,i)=>{const prev=i===0?[p[0],p[1]-1]:L.path[i-1],next=i===L.path.length-1?[p[0],p[1]+1]:L.path[i+1];
+  const a=need(p,prev),b=need(p,next);let k,r;
+  if((a+2)%4===b){k="I";r=(a%2===1)?0:1}else{k="L";const s=[a,b].sort().join("-");r={"0-1":0,"1-2":1,"2-3":2,"0-3":3}[s]}
+  const t=tiles[p[0]][p[1]];t.k=k;t.sol=r;t.r=(r+1+Math.floor(rnd()*3))%4;if(k==="I"&&t.r%2===r%2)t.r=r+1;
+  if(L.lock===i){t.lock=true;t.r=r+1}});
+ const g=$("grid");g.textContent="";g.style.gridTemplateColumns="repeat("+C+",1fr)";
+ for(let r=0;r<R;r++)for(let c=0;c<C;c++){const t=tiles[r][c];const b=document.createElement("button");b.type="button";b.className="t"+(t.lock?" lock":"");b.innerHTML=svg(t.k);
+  b.setAttribute("aria-label",t.lock?"trecho em obras":"pedaço de canal, linha "+(r+1)+", coluna "+(c+1));rot(b,t);t.el=b;
+  b.addEventListener("click",()=>{if(solved)return;if(t.lock){$("msg").textContent="Esse trecho está em obras. Não dá para girar.";return}t.r++;rot(b,t);flow()});g.append(b)}
+ $("yr").textContent=L.y;$("st").textContent=L.st;$("to").textContent=L.to;const pt=r=>"calc(9px + "+((r+.5)/R)+" * (100% - 18px))";$("mL").style.top=pt(L.path[0][0]);$("mR").style.top=pt(L.path[L.path.length-1][0]);$("mR").classList.remove("wet");
+ $("rib").hidden=true;$("msg").textContent="Gire os pedaços de canal até a água sair do rio, à esquerda, e chegar ao destino, à direita.";flow()}
+function flow(){const L=LEVELS[li];tiles.flat().forEach(t=>t.el.classList.remove("wet"));
+ let r=L.path[0][0],c=0,from=3,seen=new Set(),ok=false;
+ while(r>=0&&r<R&&c>=0&&c<C){const t=tiles[r][c];const o=opens(t);if(!o.includes(from)||t.lock||seen.has(r+","+c))break;seen.add(r+","+c);t.el.classList.add("wet");
+  const out=o.find(d=>d!==from);if(c===C-1&&out===1&&r===L.path[L.path.length-1][0]){ok=true;break}
+  r+=D[out][0];c+=D[out][1];from=(out+2)%4}
+ if(ok)return win();
+ if(L.lock!==undefined){const lp=L.path[L.lock];const prev=L.path[L.lock-1];
+  const afterOk=L.path.slice(L.lock+1).every(p=>{const t=tiles[p[0]][p[1]];return t.k==="I"?t.r%2===t.sol%2:t.r%4===t.sol});
+  if(seen.has(prev[0]+","+prev[1])&&afterOk)return blocked()}}
+function win(){solved=true;$("mR").classList.add("wet");$("msg").textContent="A água chegou! 💧";showRibbon()}
+function blocked(){solved=true;$("msg").textContent="A água chegou até o trecho em obras e parou. Em julho de 2026, o Ramal do Apodi ainda não estava pronto.";
+ const L=LEVELS[li];$("log").prepend(factLi(L.f,false));
+ $("rib").hidden=false;$("track").hidden=true;$("cut").hidden=true;$("rib").querySelector("h3").textContent="Inauguração adiada";
+ $("rib").querySelector("p").textContent="Os presidentes continuam na fila com a tesoura na mão.";$("ribMsg").textContent="";
+ setTimeout(finish,1200)}
+function showRibbon(){const tr=$("track");tr.hidden=false;$("cut").hidden=false;$("rib").querySelector("h3").textContent="Hora da inauguração! Quem corta a fita?";
+ $("rib").querySelector("p").textContent="Todo presidente quer aparecer na foto. Aperte o botão quando a tesoura estiver em cima de quem fez esta parte.";
+ tr.querySelectorAll(".pres").forEach(x=>x.remove());$("band").classList.remove("cut");
+ PRES.forEach((p,i)=>{const d=document.createElement("div");d.className="pres";d.dataset.id=p.id;d.style.left=(10+i*20)+"%";
+  const f=document.createElement("span");f.className="f";f.textContent="🤵";f.setAttribute("aria-hidden","true");const n=document.createElement("span");n.textContent=p.n;const y=document.createElement("small");y.textContent=p.y;d.append(f,n,y);tr.append(d)});
+ $("ribMsg").textContent="";$("rib").hidden=false;$("cut").disabled=false;scx=0;scDir=1;let last=performance.now();
+ const sp=22+li*4;const mv=now=>{const dt=(now-last)/1000;last=now;scx+=scDir*sp*dt;if(scx>=100){scx=100;scDir=-1}if(scx<=0){scx=0;scDir=1}$("sc").style.left=(4+scx*.92)+"%";scRaf=requestAnimationFrame(mv)};
+ cancelAnimationFrame(scRaf);scRaf=requestAnimationFrame(mv);setTimeout(()=>$("rib").scrollIntoView({behavior:"smooth",block:"nearest"}),200)}
+function cut(){const L=LEVELS[li];const pos=4+scx*.92;let best=null,bd=1e9;
+ $("track").querySelectorAll(".pres").forEach(d=>{const x=parseFloat(d.style.left);if(Math.abs(x-pos)<bd){bd=Math.abs(x-pos);best=d}});
+ tries++;
+ if(best&&best.dataset.id===L.who){cancelAnimationFrame(scRaf);$("cut").disabled=true;$("band").classList.add("cut");best.classList.add("ok");
+  $("ribMsg").textContent="";const tg=document.createElement("span");tg.className="tg doc";tg.textContent=LBL.doc;$("ribMsg").append(tg,document.createTextNode(" 📸 Fita cortada! "+L.f.b));
+  $("log").prepend(factLi(L.f,false));
+  const nx=document.createElement("button");nx.className="btn";nx.type="button";nx.style.marginTop="8px";nx.textContent="Próxima etapa da obra ▶";nx.addEventListener("click",()=>{li++;setup();$("yr").scrollIntoView({behavior:"smooth",block:"start"})});
+  $("ribMsg").append(document.createElement("br"),nx)}
+ else{const who=PRES.find(p=>p.id===(best&&best.dataset.id));$("ribMsg").textContent=(who?who.n+" ("+who.y+"): ":"")+WRONG[tries%WRONG.length]+" Tente de novo."}}
+function finish(){$("endF").textContent="";END.forEach(f=>$("endF").append(factLi(f,false)));$("end").hidden=false;setTimeout(()=>$("end").scrollIntoView({behavior:"smooth",block:"start"}),400)}
+$("cut").addEventListener("click",cut);
+$("again").addEventListener("click",()=>{li=0;$("log").textContent="";$("end").hidden=true;setup();$("yr").scrollIntoView({behavior:"smooth",block:"start"})});
+li=0;setup();
+
 </script>
-<script src="https://fcarvalhodev.github.io/rotas/jogos/jogo.js"></script>
 </body></html>
